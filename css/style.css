@@ -1,0 +1,104 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f8ff;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+header {
+    background: linear-gradient(90deg, #1e3c72, #2a5298);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+.snowfall {
+    background-image: url('../images/snowfall.gif');
+    height: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.carousel-track {
+    display: flex;
+    overflow: hidden;
+    animation: scrollCarousel 15s linear infinite;
+}
+
+@keyframes scrollCarousel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+
+.animated-banner h3 {
+    color: #ffcc00;
+    animation: glow 2s infinite;
+}
+
+@keyframes glow {
+    0%, 100% { text-shadow: 0 0 10px #ffcc00; }
+    50% { text-shadow: 0 0 20px #ffff00; }
+}
+
+/* Fireworks */
+.firework-display {
+    position: relative;
+    height: 300px;
+    background: radial-gradient(circle, #001f3f, #011526);
+    overflow: hidden;
+}
+
+@keyframes firework {
+    0% { transform: scale(0); opacity: 1; }
+    100% { transform: scale(1.5); opacity: 0; }
+}
+
+.firework {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: white;
+    animation: firework 1.5s infinite ease-in-out;
+    animation-delay: calc(var(--i) * -0.2s);
+}
+
+.firework:nth-child(1) { top: 50%; left: 40%; --i: 1; }
+.firework:nth-child(2) { top: 30%; left: 60%; --i: 2; }
+.firework:nth-child(3) { top: 70%; left: 20%; --i: 3; }
+
+/* Snow Globe Animation */
+.snow-globe {
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, white 60%, transparent 100%);
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    animation: shake 3s infinite;
+}
+
+@keyframes shake {
+    0%, 100% { transform: rotate(0); }
+    25% { transform: rotate(-2deg); }
+    75% { transform: rotate(2deg); }
+}
+
+.snow {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: white;
+    border-radius: 50%;
+    animation: snow 5s linear infinite;
+}
+
+@keyframes snow {
+    0% { transform: translateY(-10px); }
+    100% { transform: translateY(300px); }
+}
+
+.snow:nth-child(1) { left: 10%; animation-delay: 0s; }
+.snow:nth-child(2) { left: 50%; animation-delay: 1s; }
+.snow:nth-child(3) { left: 70%; animation-delay: 2s; }

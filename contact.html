@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Snowburst+One&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Contact Winter Wonderland</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Send Us a Message</h2>
+        <form action="#" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+
+            <button type="submit">Send</button>
+        </form>
+        <div class="holiday-lights"></div>
+        <section class="contact-tips">
+            <h3>Holiday Greetings</h3>
+            <p>Don’t forget to spread joy by sending warm holiday wishes!</p>
+        </section>
+        <div class="countdown">
+            <h3>Countdown to New Year!</h3>
+            <p id="countdown-timer">00:00:00</p>
+        </div>
+        <div class="firework-display">
+            <h3>New Year Fireworks!</h3>
+            <p>Watch the fireworks burst into a festive celebration!</p>
+        </div>
+        <div class="snow-globe">
+            <h3>Interactive Snow Globe</h3>
+            <p>Shake the globe to watch the snow swirl!</p>
+        </div>
+        <audio controls autoplay loop>
+            <source src="music/contact_music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    </main>
+    <footer>
+        <p>&copy; 2024 Winter Wonderland. All rights reserved.</p>
+    </footer>
+    <script src="js/countdown.js"></script>
+</body>
+</html>

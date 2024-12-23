@@ -1,0 +1,15 @@
+{
+  "name": "holiday-website",
+  "version": "1.0.0",
+  "description": "An interactive holiday-themed website featuring a snowman, holiday lights, and a countdown timer.",
+  "main": "src/js/script.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^27.0.0"
+  },
+  "author": "",
+  "license": "ISC"
+}
