@@ -56,7 +56,7 @@ music/ - Audio files
 
 🧪 Testing
 
-Run tests using Jest:
+Run tests using npm:
 
 ```bash
 npm install
