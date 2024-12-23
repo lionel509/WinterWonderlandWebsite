@@ -22,7 +22,9 @@ An interactive holiday-themed website featuring animations, games, and festive e
 ## 🚀 Getting Started
 
 1. Clone the repository:
+
 ```bash
+
 git clone https://github.com/yourusername/winter-wonderland.git
 
 Open index.html in your browser to view the website
@@ -38,7 +40,9 @@ music/ - Audio files
 
 🧪 Testing
 Run tests using Jest:
+
 ```bash 
+
 npm install
 npm test
 
