@@ -1,0 +1,363 @@
+/* This file contains the styles for the Winter/Christmas-themed website */
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(#123456, #234567);
+    overflow: hidden;
+    color: white;
+    font-family: Arial, sans-serif; 
+    position: relative;
+}
+
+header {
+    background-color: #e25755; /* Light red header */
+    padding: 20px;
+    text-align:h center;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin: 0;
+}
+
+h2  {
+    color: #006400; /* Dark green for subheadings */
+}
+
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #006400;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background-color: #ff5755; /* Light red footer */
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+.button {
+    background-color: #ff4500; /* Orange-red button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #dc143c; /* Crimson on hover */
+}
+
+.snowflake {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+#countdown {
+    margin: 2em auto;
+    padding: 1.5em;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    max-width: 800px;
+    text-align: center;
+}
+
+#days {
+    font-size: 2em;
+    font-weight: bold;
+    color: #dc3545;
+}
+
+.countdown-display {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    font-size: 2.5em;
+    font-weight: bold;
+    color: #dc3545;
+    margin: 20px 0;
+}
+
+.countdown-unit {
+    text-align: center;
+    padding: 10px;
+}
+
+.countdown-label {
+    font-size: 0.4em;
+    color: #666;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.snowflakes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.snowflake {
+    position: fixed;
+    top: -10px;
+    color: white;
+    font-size: 1em;
+    text-shadow: 0 0 1px #000;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+}
+
+.animate-text {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards;
+}
+
+.animate-number {
+    opacity: 0;
+    animation: fadeIn 1s ease-in forwards, countUp 2s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes countUp {
+    from { transform: translateY(20px); }
+    to { transform: translateY(0); }
+}
+
+#santa-tracker {
+    font-family: 'Mountains of Christmas', cursive;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+#santa-tracker h2 {
+    font-size: 2em;
+    color: #c41e3a;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    margin-bottom: 20px;
+}
+
+#tracker-info p {
+    font-size: 2em;
+    margin: 15px 0;
+    color: #2f4f4f;
+}
+
+.animate-text {
+    font-size: 2em;
+    color: #c41e3a;
+    display: inline-block;
+    animation: fadeIn 1s ease-in forwards;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.animate-number {
+    font-size: 2em;
+    color: #006400;
+    font-weight: bold;
+    display: inline-block;
+    animation: fadeIn 1s ease-in forwards, countUp 2s ease-out forwards;
+}
+
+#current-location::before {
+    content: '🎅 ';
+}
+
+#next-stop::before {
+    content: '🎄 ';
+}
+
+#gifts-delivered::before {
+    content: '🎁 ';
+}
+
+section.celebration {
+    margin: 2em auto;
+    padding: 1.5em;
+    max-width: 800px;
+}
+
+section.celebration h2 {
+    font-size: 3em;
+    color: #c41e3a;
+    margin-bottom: 0.5em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section.celebration p {
+    font-size: 1.8em;
+    line-height: 1.6;
+    color: #35d335;
+    margin: 1em auto;
+    max-width: 600px;
+}
+
+.snowball {
+    width: 20px;
+    height: 20px;
+    background: white;
+    border-radius: 50%;
+    position: fixed;
+    bottom: 20px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    z-index: 1000;
+}
+
+.snowball-1, .snowball-2 { left: -20px; }
+.snowball-3, .snowball-4 { right: -20px; }
+
+.snowball-1 { animation: throwLeft1 5s infinite ease-in-out; }
+.snowball-2 { animation: throwLeft2 4s infinite ease-in-out 2s; }
+.snowball-3 { animation: throwRight1 4.5s infinite ease-in-out 1s; }
+.snowball-4 { animation: throwRight2 5.5s infinite ease-in-out 3s; }
+
+@keyframes throwLeft1 {
+    0% { left: -20px; bottom: 20px; transform: rotate(0deg); }
+    20% { left: 20%; bottom: 60vh; transform: rotate(180deg); }
+    40% { left: 40%; bottom: 80vh; transform: rotate(360deg); }
+    60% { left: 60%; bottom: 60vh; transform: rotate(540deg); }
+    80% { left: 80%; bottom: 40vh; transform: rotate(720deg); }
+    100% { left: 100vw; bottom: 20px; transform: rotate(1080deg); }
+}
+
+@keyframes throwLeft2 {
+    0% { left: -20px; bottom: 40px; transform: rotate(0deg); }
+    25% { left: 25%; bottom: 70vh; transform: rotate(180deg); }
+    50% { left: 50%; bottom: 85vh; transform: rotate(360deg); }
+    75% { left: 75%; bottom: 50vh; transform: rotate(540deg); }
+    100% { left: 100vw; bottom: 40px; transform: rotate(720deg); }
+}
+
+@keyframes throwRight1 {
+    0% { right: -20px; bottom: 30px; transform: rotate(0deg); }
+    20% { right: 20%; bottom: 65vh; transform: rotate(-180deg); }
+    40% { right: 40%; bottom: 75vh; transform: rotate(-360deg); }
+    60% { right: 60%; bottom: 55vh; transform: rotate(-540deg); }
+    80% { right: 80%; bottom: 35vh; transform: rotate(-720deg); }
+    100% { right: 100vw; bottom: 30px; transform: rotate(-1080deg); }
+}
+
+@keyframes throwRight2 {
+    0% { right: -20px; bottom: 50px; transform: rotate(0deg); }
+    25% { right: 25%; bottom: 60vh; transform: rotate(-180deg); }
+    50% { right: 50%; bottom: 80vh; transform: rotate(-360deg); }
+    75% { right: 75%; bottom: 45vh; transform: rotate(-540deg); }
+    100% { right: 100vw; bottom: 50px; transform: rotate(-720deg); }
+}
+
+.christmas-scene {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 40px 0;
+}
+
+.tree {
+    position: relative;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid #0a5828;
+}
+
+.trunk {
+    position: absolute;
+    bottom: -120px;
+    left: -10px;
+    width: 20px;
+    height: 20px;
+    background: #573716;
+}
+
+.light {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    animation: twinkle 1.5s infinite alternate;
+}
+
+.light-1 { left: -30px; top: 20px; background: #ff0000; }
+.light-2 { left: 10px; top: 40px; background: #00ff00; }
+.light-3 { right: -20px; top: 30px; background: #0000ff; }
+.light-4 { left: -10px; top: 60px; background: #ffff00; }
+.light-5 { right: -30px; bottom: 10px; background: #ff00ff; }
+
+@keyframes twinkle {
+    0% { opacity: 0.4; }
+    100% { opacity: 1; box-shadow: 0 0 10px currentColor; }
+}
+
+.hills {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.hill {
+    position: absolute;
+    border-radius: 50%;
+    width: 200%;
+    padding-top: 200%;
+}
+
+.hill-1 {
+    background: #e8f4f8;
+    bottom: -180%;
+    left: -50%;
+}
+
+.hill-2 {
+    background: #d4e8f0;
+    bottom: -160%;
+    left: -20%;
+}
+
+.hill-3 {
+    background: #c0dce8;
+    bottom: -170%;
+    left: 20%;
+}
+
+.hill-4 {
+    background: #b0d0e0;
+    bottom: -150%;
+    right: -50%;
+}
