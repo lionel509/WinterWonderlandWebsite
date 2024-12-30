@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winter Wonderland</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/styles.css"> -->
+</head>
+<body>
+    <div class="snowflakes" aria-hidden="true"></div>
+    <!-- <div class="snowball snowball-1"></div>
+    <div class="snowball snowball-2"></div>
+    <div class="snowball snowball-3"></div>
+     -->
+    <header style="text-align: center;">
+        <h1>Welcome to the Winter Wonderland</h1>
+    </header>
+    <main>
+        <section class="celebration" style="text-align: center;">
+            <h2>Celebrate the Season!</h2>
+            <p>Join us in celebrating the magic of winter with festive decorations and cozy vibes.</p>
+        </section>
+        
+        <section id="countdown" style="text-align: center;">
+            <h2>Christmas Countdown</h2>
+            <div class="countdown-display">
+                <div class="countdown-unit">
+                    <div data-unit="days">0</div>
+                    <div class="countdown-label">Days</div>
+                </div>
+                <div class="countdown-unit">
+                    <div data-unit="hours">00</div>
+                    <div class="countdown-label">Hours</div>
+                </div>
+                <div class="countdown-unit">
+                    <div data-unit="minutes">00</div>
+                    <div class="countdown-label">Minutes</div>
+                </div>
+                <div class="countdown-unit">
+                    <div data-unit="seconds">00</div>
+                    <div class="countdown-label">Seconds</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="santa-tracker" style="text-align: center;">
+            <h2>Santa Tracker</h2>
+            <div id="tracker-info">
+                <p>Santa's Current Location: <span id="current-location" class="animate-text">North Pole</span></p>
+                <p>Status: <span id="next-stop" class="animate-text">Preparing for Christmas 2025</span></p>
+                <p>Gifts Delivered: <span id="gifts-delivered" class="animate-number">0</span></p>
+            </div>
+        </section>
+        
+        <div class="christmas-scene">
+            <div class="tree">
+                <div class="light light-1"></div>
+                <div class="light light-2"></div>
+                <div class="light light-3"></div>
+                <div class="light light-4"></div>
+                <div class="light light-5"></div>
+                <div class="trunk"></div>
+            </div>
+            <div class="tree">
+                <div class="light light-1"></div>
+                <div class="light light-2"></div>
+                <div class="light light-3"></div>
+                <div class="light light-4"></div>
+                <div class="light light-5"></div>
+                <div class="trunk"></div>
+            </div>
+        </div>
+    
+    </main>
+    <footer>
+        <p>&copy; 2024 Lionel. Licensed under the 
+            <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer">MIT License</a>. View the source code on 
+            <a href="https://github.com/lionel509/WinterWonderlandWebsite" target="_blank" rel="noopener noreferrer">GitHub</a>.
+        </p>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/santa-tracker.js"></script>
+    <script>
+        const response = await fetch('http://worldtimeapi.org/api/ip');
+        const data = await response.json();
+        const now = new Date(data.datetime);
+
+        // Initial update
+        updateChristmasCountdown();
+
+        // Update every second
+        setInterval(updateChristmasCountdown, 1000);
+    </script>
+</body>
+</html>
