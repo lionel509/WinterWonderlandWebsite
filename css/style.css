@@ -4,23 +4,28 @@
     --hill-height: 40vh;
     --tree-base-size: 15px;
     --countdown-size: clamp(2rem, 4vw, 3rem);
+    --container-width: min(90%, 1200px);
+    --box-padding: clamp(1rem, 3vw, 2rem);
+    --heading-size: clamp(1.5rem, 4vw, 2.5rem);
+    --text-size: clamp(1rem, 2vw, 1.25rem);
+    --counter-size: clamp(1.25rem, 3vw, 2rem);
 }
 
 body {
     min-height: 100vh;
     margin: 0;
+    padding: 0;
     overflow-x: hidden;
     background: linear-gradient(#123456, #234567);
-    overflow: hidden;
     color: white;
-    font-family: Arial, sans-serif; 
+    font-family: Arial, sans-serif;
     position: relative;
 }
 
 header {
-    background-color: #e25755; /* Light red header */
+    background-color: #e25755;
     padding: 20px;
-    text-align:h center;
+    text-align: center;
 }
 
 header h1 {
@@ -33,8 +38,8 @@ h1 {
     margin: 0;
 }
 
-h2  {
-    color: #006400; /* Dark green for subheadings */
+h2 {
+    color: #006400;
 }
 
 nav {
@@ -52,16 +57,16 @@ nav a:hover {
 }
 
 footer {
-    background-color: #ff5755; /* Light red footer */
+    background-color: #ff5755;
     text-align: center;
     padding: 10px;
-    position: fixed;
+    position: sticky;
     bottom: 0;
     width: 100%;
 }
 
 .button {
-    background-color: #ff4500; /* Orange-red button */
+    background-color: #ff4500;
     color: white;
     padding: 10px 20px;
     border: none;
@@ -70,7 +75,7 @@ footer {
 }
 
 .button:hover {
-    background-color: #dc143c; /* Crimson on hover */
+    background-color: #dc143c;
 }
 
 .snowflake {
@@ -183,25 +188,9 @@ footer {
 }
 
 #tracker-info p {
-    font-size: 2em;
     margin: 15px 0;
     color: #2f4f4f;
-}
-
-.animate-text {
-    font-size: 2em;
-    color: #c41e3a;
-    display: inline-block;
-    animation: fadeIn 1s ease-in forwards;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-}
-
-.animate-number {
-    font-size: 2em;
-    color: #006400;
-    font-weight: bold;
-    display: inline-block;
-    animation: fadeIn 1s ease-in forwards, countUp 2s ease-out forwards;
+    font-size: var(--text-size);
 }
 
 #current-location::before {
@@ -330,7 +319,6 @@ section.celebration p {
     100% { background: #ff0000; box-shadow: 0 0 10px #ff0000; }
 }
 
-/* Remove any transform animations, keep fixed positions */
 .light-1 { left: -30px; top: 20px; }
 .light-2 { left: 10px; top: 40px; }
 .light-3 { right: -20px; top: 30px; }
@@ -347,7 +335,7 @@ section.celebration p {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: var(--hill-height);
+    height: 40vh;
     z-index: -1;
     overflow: hidden;
 }
@@ -405,7 +393,6 @@ section.celebration p {
 .hill-4::before { left: 25%; bottom: 57%; }
 .hill-4::after { left: 85%; bottom: 63%; }
 
-/* Additional random trees using multiple box-shadows */
 .hill::before {
     box-shadow: 
         100px 10px 0 -3px #0a2816,
@@ -447,33 +434,6 @@ section.celebration p {
     syntax: '<number>';
     inherits: false;
     initial-value: 0;
-}
-
-.hill::before {
-    content: '';
-    position: absolute;
-    width: var(--tree-size);
-    height: calc(var(--tree-size) * 1.5);
-    background: linear-gradient(to bottom, #0a2816 70%, #2d1810 70%);
-    clip-path: polygon(50% 0, 0 100%, 100% 100%);
-    filter: brightness(var(--tree-brightness, 1));
-}
-
-.hill-1::before { --tree-brightness: 0.7; }
-.hill-2::before { --tree-brightness: 0.8; }
-.hill-3::before { --tree-brightness: 0.9; }
-.hill-4::before { --tree-brightness: 1; }
-
-.hill::before {
-    box-shadow:
-        calc(10% + (90% * random(1))) calc(20% + (60% * random(2))) 0 -2px var(--tree-color, #0a2816),
-        calc(10% + (90% * random(3))) calc(20% + (60% * random(4))) 0 -2px var(--tree-color, #0a2816),
-        calc(10% + (90% * random(5))) calc(20% + (60% * random(6))) 0 -2px var(--tree-color, #0a2816),
-        calc(10% + (90% * random(7))) calc(20% + (60% * random(8))) 0 -2px var(--tree-color, #0a2816),
-        calc(10% + (90% * random(9))) calc(20% + (60% * random(10))) 0 -2px var(--tree-color, #0a2816),
-        calc(10% + (90% * random(11))) calc(20% + (60% * random(12))) 0 -2px var(--tree-color, #0a2816),
-        calc(10% + (90% * random(13))) calc(20% + (60% * random(14))) 0 -2px var(--tree-color, #0a2816),
-        calc(10% + (90% * random(15))) calc(20% + (60% * random(16))) 0 -2px var(--tree-color, #0a2816);
 }
 
 .trees-container {
@@ -526,7 +486,6 @@ section.celebration p {
     100% { opacity: 1; transform: scale(1); filter: brightness(1.2); }
 }
 
-/* Generate lights along top */
 .string-lights::after {
     content: '';
     position: absolute;
@@ -534,58 +493,4 @@ section.celebration p {
     left: 0;
     width: 100%;
     height: 20px;
-    background: 
-        radial-gradient(circle at center, red 0, red 4px, transparent 4px) 0 10px,
-        radial-gradient(circle at center, green 0, green 4px, transparent 4px) 20px 10px,
-        radial-gradient(circle at center, blue 0, blue 4px, transparent 4px) 40px 10px;
-    background-size: 60px 20px;
-    animation: moveLights 2s linear infinite;
-}
-
-/* Side lights */
-.side-lights {
-    position: fixed;
-    width: 20px;
-    height: 100%;
-    right: 0;
-    top: 0;
-    background: 
-        radial-gradient(circle at center, red 0, red 4px, transparent 4px) 10px 0,
-        radial-gradient(circle at center, green 0, green 4px, transparent 4px) 10px 20px,
-        radial-gradient(circle at center, blue 0, blue 4px, transparent 4px) 10px 40px;
-    background-size: 20px 60px;
-    animation: lightTwinkle 1s infinite alternate;
-}
-
-/* Hanging lights for boxes */
-.house::after {
-    content: '';
-    position: absolute;
-    top: -10px;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    background: 
-        radial-gradient(circle at center, red 0, red 4px, transparent 4px) 0 10px,
-        radial-gradient(circle at center, green 0, green 4px, transparent 4px) 20px 10px,
-        radial-gradient(circle at center, blue 0, blue 4px, transparent 4px) 40px 10px;
-    background-size: 60px 20px;
-    filter: drop-shadow(0 0 5px currentColor);
-}
-
-@keyframes moveLights {
-    0% { background-position: 0 10px; }
-    100% { background-position: 60px 10px; }
-}
-
-/* Responsive Adjustments */
-@media (max-width: 768px) {
-    :root {
-        --hill-height: 30vh;
-        --tree-base-size: 10px;
-    }
-    
-    .hill {
-        transform: translateY(70%);
-    }
 }

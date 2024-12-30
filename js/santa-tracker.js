@@ -71,5 +71,25 @@ function updateSantaDisplay() {
     animateValue(giftsDelivered, 0, 8197042464, 2000);
 }
 
+function updateCounter() {
+    const counter = document.querySelector('.counter');
+    const target = parseInt(counter.getAttribute('data-target'));
+    const increment = target / 100;
+    let current = 0;
+
+    const timer = setInterval(() => {
+        current += increment;
+        counter.textContent = Math.round(current).toLocaleString();
+        
+        if (current >= target) {
+            counter.textContent = target.toLocaleString();
+            clearInterval(timer);
+        }
+    }, 20);
+}
+
 // Call when page loads
-document.addEventListener('DOMContentLoaded', updateSantaDisplay);
+document.addEventListener('DOMContentLoaded', () => {
+    updateSantaDisplay();
+    updateCounter();
+});
